@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antec Games Retrô - Sua loja de jogos retrô</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header id="inicio">
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo da Antec" />
+    </div>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#jogos">Jogos</a>
+      <a href="#consoles">Consoles</a>
+      <a href="#ofertas">Ofertas</a>
+      <a href="#ofertas">Clientes</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img class="hero-logo" src="img/logo.png" alt="Logo da Antec" />
+    <h2>Bem-vindo à <span style="color: #ffc039;">Antec Games Retrô</span></h2>
+    <p>Os melhores jogos para todas as plataformas, com os melhores preços!</p>
+  </section>
+
+  <section id="jogos" class="destaques">
+    <h3>Jogos em Destaque</h3>
+    <div class="jogos">
+      <div class="jogo">
+        <img src="img/spiderman-game.jpeg" alt="Jogo 1">
+        <div class="info">
+          <h4>Spider-Man</h4>
+          <p>Vivencie a arte de combater os grandes criminosos na cidade de Nova York com este herói icônico da Marvel.
+          </p>
+        </div>
+      </div>
+      <div class="jogo">
+        <img src="img/rapjam-game.jpeg" alt="Jogo 2">
+        <div class="info">
+          <h4>Rap Jam: Volume One</h4>
+          <p>Muita pancadaria e estilo rap neste clássico de basquete sem regras.</p>
+        </div>
+      </div>
+      <div class="jogo">
+        <img src="img/dragonball-fighterz.jpeg" alt="Jogo 3">
+        <div class="info">
+          <h4>Dragon Ball Fighter Z</h4>
+          <p>Lutas infinitas e espetaculares entre guerreiros poderosos com um gráfico surpreendente em anime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="consoles" class="destaques">
+    <h3>Consoles</h3>
+    <div class="jogos">
+      <div class="jogo">
+        <img src="img/ps1-fat.jpeg" alt="PlayStation 1 Fat">
+        <div class="info">
+          <h4>PlayStation 1 Fat</h4>
+          <p>Curta títulos como Crash, Spyro, Metal Gear Solid, Silent Hill, Tekken, Tomb Raider, Winning Eleven,
+            Castlevania e muito mais.</p>
+        </div>
+      </div>
+      <div class="jogo">
+        <img src="img/mega-drive3.jpeg" alt="Mega Drive 3">
+        <div class="info">
+          <h4>Mega Drive</h4>
+          <p>Reviva aventuras com Sonic, Streets of Rage e mais.</p>
+        </div>
+      </div>
+      <div class="jogo">
+        <img src="img/ps2-fat.jpeg" alt="PlayStation 2 Fat">
+        <div class="info">
+          <h4>PlayStation 2 Fat</h4>
+          <p>O PS2 FAT é uma excelente opção de presente para gamers de todas as idades. Um console que marcou época e
+            ainda hoje proporciona horas de entretenimento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ofertas" class="destaques">
+    <h3>Ofertas Especiais</h3>
+    <p style="text-align:center;">Em breve você encontrará promoções incríveis por aqui!</p>
+  </section>
+
+  <section id="clientes" class="destaques">
+    <h3>Nossos Clientes</h3>
+    <div class="carrossel-container">
+      <div class="carrossel" id="carrossel">
+        <div class="slide ativo"><img src="img/cliente-ronaldo.jpeg" alt="Ronaldo"></div>
+        <div class="slide"><img src="img/cliente-marafon.jpeg" alt="João Marafon"></div>
+        <div class="slide"><img src="img/cliente-brenner.jpg" alt="Brenner"></div>
+      </div>
+
+      <button class="seta esquerda" onclick="mudarSlide(-1)">&#10094;</button>
+      <button class="seta direita" onclick="mudarSlide(1)">&#10095;</button>
+
+      <div class="indicadores" id="indicadores"></div>
+    </div>
+  </section>
+
+  <section id="contato" class="destaques">
+    <h3>Fale Conosco</h3>
+    <p style="text-align:center;">Envie um e-mail para andrefh2018@gmail.com ou chame no WhatsApp pelo ícone ao lado.
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Antec Games Retrô. Todos os direitos reservados.</p>
+  </footer>
+
+  <a href="https://wa.me/5535984393854" class="whatsapp-button" target="_blank" aria-label="Converse no WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp" />
+  </a>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const indicadores = document.getElementById('indicadores');
+    let index = 0;
+
+    function mostrarSlide(i) {
+      slides.forEach((slide, idx) => {
+        slide.classList.remove('ativo');
+        if (i === idx) slide.classList.add('ativo');
+      });
+
+      document.querySelectorAll('.indicadores span').forEach((dot, idx) => {
+        dot.classList.toggle('ativo', idx === i);
+      });
+    }
+
+    function mudarSlide(direcao) {
+      index = (index + direcao + slides.length) % slides.length;
+      mostrarSlide(index);
+    }
+
+    // Criar indicadores
+    slides.forEach((_, i) => {
+      const span = document.createElement('span');
+      span.addEventListener('click', () => {
+        index = i;
+        mostrarSlide(index);
+      });
+      indicadores.appendChild(span);
+    });
+
+    mostrarSlide(index);
+  </script>
+
+</body>
+
+</html>
