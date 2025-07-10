@@ -73,12 +73,12 @@ nav a:hover {
 .hero h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
 }
 
 .hero p {
   font-size: 1.2rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
 }
 
 .destaques {
